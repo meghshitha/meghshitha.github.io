@@ -12,26 +12,47 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+::-webkit-scrollbar-thumb {
+  background: #fed700;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: aqua;
+}
+
 /* ---------- Navbar ---------- */
 .nav {
   width: 100%;
-  height: 60px;
-  background-color: rgba(32, 32, 32, 0.95);
-  backdrop-filter: blur(5px);
+  height: 65px;
+  background-color: rgba(32, 32, 32, 0.9);
+  backdrop-filter: blur(6px);
   color: #fed700;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0px 3px 5px black;
+  box-shadow: 0px 3px 10px rgba(0,0,0,0.7);
   position: fixed;
   top: 0;
   left: 0;
   padding: 0 2rem;
   z-index: 1000;
+  animation: slideDown 0.8s ease;
+}
+@keyframes slideDown {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
 }
 .name {
   font-size: 28px;
   font-weight: bold;
+  letter-spacing: 1px;
 }
 .name span {
   color: aqua;
@@ -42,24 +63,27 @@ html {
 }
 .info {
   display: flex;
-  gap: 20px;
+  gap: 25px;
 }
 .info div a {
   text-decoration: none;
   color: #fed700;
   font-size: 18px;
   position: relative;
-  transition: color 0.25s ease;
+  transition: color 0.3s ease;
 }
 .info div a::after {
   content: "";
   position: absolute;
-  bottom: -4px;
+  bottom: -5px;
   left: 0;
   width: 0%;
   height: 2px;
-  background: #fed700;
+  background: aqua;
   transition: width 0.3s ease;
+}
+.info div a:hover {
+  color: aqua;
 }
 .info div a:hover::after {
   width: 100%;
@@ -82,16 +106,17 @@ html {
 }
 .data-cont {
   width: 60%;
+  animation: fadeInLeft 1s ease;
 }
 .data {
   max-width: 600px;
 }
 .data h4 {
   font-size: 1.2rem;
-  color: #ccc;
+  color: #bbb;
 }
 .data h1 {
-  font-size: 3.5rem;
+  font-size: 3.8rem;
   color: #fed700;
   margin-bottom: 1rem;
 }
@@ -104,47 +129,48 @@ html {
   background-color: transparent;
   color: white;
   border: 2px solid #fed700;
-  border-radius: 20px;
+  border-radius: 25px;
   font-size: 1rem;
   font-weight: bold;
   margin-left: 20px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease, transform 0.2s ease;
 }
 .resumebtn button:hover {
   color: #202020;
   background-color: #fed700;
+  transform: scale(1.05);
 }
 .pic-cont {
   width: 30%;
   display: flex;
   justify-content: center;
+  animation: fadeInRight 1s ease;
 }
 .pic {
   height: 300px;
   width: 250px;
   overflow: hidden;
   background-color: #fee243;
-  border-radius: 15%;
+  border-radius: 20px;
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.5);
+  transition: transform 0.4s ease;
+}
+.pic:hover {
+  transform: scale(1.05);
 }
 .pic img {
   height: 140%;
   filter: drop-shadow(3px 2px 6px #202020);
 }
 
-/* Responsive Home */
-@media all and (max-width: 730px) {
-  .hmcont {
-    flex-direction: column-reverse;
-    gap: 2rem;
-  }
-  .data-cont, .pic-cont {
-    width: 100%;
-    text-align: center;
-  }
-  .data h1 {
-    font-size: 2.5rem;
-  }
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 /* ---------- About Section ---------- */
@@ -162,10 +188,15 @@ html {
 }
 .abt-data, .edu-cont {
   flex: 1;
-  border: 2px solid white;
-  border-radius: 8px;
-  padding: 20px;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 25px;
   background: #282828;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+}
+.abt-data:hover, .edu-cont:hover {
+  transform: translateY(-8px);
 }
 .abt-data h3, .edu-cont h2 {
   color: #fed700;
@@ -183,13 +214,6 @@ html {
   color: #ccc;
 }
 
-/* Responsive About */
-@media all and (max-width: 900px) {
-  .abtcont {
-    flex-direction: column;
-  }
-}
-
 /* ---------- Skills Section ---------- */
 .skills {
   padding: 4rem 0;
@@ -199,6 +223,17 @@ html {
   color: #fed700;
   font-size: 35px;
   margin-bottom: 30px;
+  position: relative;
+}
+.skills h1::after {
+  content: "";
+  width: 80px;
+  height: 3px;
+  background: aqua;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
 }
 .skls {
   display: flex;
@@ -210,7 +245,7 @@ html {
   margin: 15px;
   padding: 1.5rem;
   border: 1px solid #fed700;
-  border-radius: 10px;
+  border-radius: 12px;
   background: #282828;
   color: #fed700;
   font-weight: bold;
@@ -220,13 +255,13 @@ html {
 .box i {
   display: block;
   margin-bottom: 8px;
-  font-size: 22px;
+  font-size: 24px;
   color: #fed700;
 }
 .box:hover {
   background-color: #fed700;
   color: #202020;
-  transform: translateY(-6px);
+  transform: translateY(-8px) scale(1.05);
 }
 .box:hover i {
   color: #202020;
@@ -240,7 +275,7 @@ html {
 .projects h1 {
   color: #fed700;
   font-size: 35px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 .procont {
   width: 90%;
@@ -257,16 +292,17 @@ html {
   border-radius: 12px;
   padding: 25px;
   color: #ddd;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .probox:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+  transform: translateY(-12px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.6);
 }
 .probox i {
   margin: 10px auto;
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
   font-size: 1.8rem;
   display: flex;
   justify-content: center;
@@ -274,6 +310,10 @@ html {
   background-color: #fed700;
   border-radius: 50%;
   color: #202020;
+  transition: background 0.3s ease;
+}
+.probox:hover i {
+  background: aqua;
 }
 .probox h3 {
   color: #fed700;
@@ -299,7 +339,7 @@ html {
 }
 .link button:hover {
   background-color: aqua;
-  transform: scale(1.05);
+  transform: scale(1.07);
 }
 .link a {
   text-decoration: none;
@@ -315,8 +355,8 @@ html {
 .fm {
   background: #282828;
   padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.4);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -329,22 +369,24 @@ html {
 .fm input, .fm textarea {
   width: 100%;
   margin-bottom: 12px;
-  padding: 10px;
+  padding: 12px;
   border-radius: 6px;
   background: #202020;
-  border: 1px solid #555;
+  border: 1px solid #444;
   color: #eee;
+  transition: border 0.3s ease;
 }
 .fm input:focus, .fm textarea:focus {
   border-color: #fed700;
   outline: none;
+  box-shadow: 0 0 8px rgba(254,215,0,0.4);
 }
 .msg {
   margin-top: 10px;
   background-color: #fed700;
   color: #202020;
   padding: 12px 25px;
-  border-radius: 20px;
+  border-radius: 25px;
   border: none;
   font-weight: bold;
   cursor: pointer;
@@ -354,11 +396,12 @@ html {
   background: #202020;
   color: #fed700;
   border: 1px solid #fed700;
+  transform: scale(1.05);
 }
 
 /* ---------- Footer ---------- */
 .foot {
-  background: #202020;
+  background: #181818;
   padding: 2rem 0;
   text-align: center;
 }
@@ -369,10 +412,11 @@ html {
   font-size: 14px;
 }
 .linksft a {
-  margin: 0 10px;
+  margin: 0 12px;
   color: #666;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 .linksft a:hover {
   color: #fed700;
+  transform: scale(1.2);
 }
