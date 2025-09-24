@@ -1,108 +1,486 @@
-body{/* --- Skills Section Update --- */
-.box {
-    display: inline-block;
-    padding: 20px 30px;
-    margin: 10px;
-    border: 1px solid #fed700;
-    border-radius: 10px;
-    background: #222;
-    color: #fed700;
-    font-weight: bold;
+/* ---------- Global ---------- */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #202020;
+  color: #eee;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+/* ---------- Navbar ---------- */
+.nav {
+  width: 100%;
+  height: 60px;
+  background-color: rgba(32, 32, 32, 0.95);
+  backdrop-filter: blur(5px);
+  color: #fed700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 3px 5px black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0 2rem;
+  z-index: 1000;
+}
+.name {
+  font-size: 28px;
+  font-weight: bold;
+}
+.name span {
+  color: aqua;
+}
+.name a {
+  text-decoration: none;
+  color: white;
+}
+.info {
+  display: flex;
+  gap: 20px;
+}
+.info div a {
+  text-decoration: none;
+  color: #fed700;
+  font-size: 18px;
+  position: relative;
+  transition: color 0.25s ease;
+}
+.info div a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #fed700;
+  transition: width 0.3s ease;
+}
+.info div a:hover::after {
+  width: 100%;
+}
+
+/* ---------- Home Section ---------- */
+.home {
+  padding-top: 120px;
+  padding-bottom: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hmcont {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3rem;
+}
+.data-cont {
+  width: 60%;
+}
+.data {
+  max-width: 600px;
+}
+.data h4 {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+.data h1 {
+  font-size: 3.5rem;
+  color: #fed700;
+  margin-bottom: 1rem;
+}
+.data p {
+  font-size: 1.05rem;
+  color: #ccc;
+}
+.resumebtn button {
+  padding: 0.8rem 2rem;
+  background-color: transparent;
+  color: white;
+  border: 2px solid #fed700;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-left: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.resumebtn button:hover {
+  color: #202020;
+  background-color: #fed700;
+}
+.pic-cont {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+}
+.pic {
+  height: 300px;
+  width: 250px;
+  overflow: hidden;
+  background-color: #fee243;
+  border-radius: 15%;
+}
+.pic img {
+  height: 140%;
+  filter: drop-shadow(3px 2px 6px #202020);
+}
+
+/* Responsive Home */
+@media all and (max-width: 730px) {
+  .hmcont {
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+  .data-cont, .pic-cont {
+    width: 100%;
     text-align: center;
-    transition: all 0.3s ease;
+  }
+  .data h1 {
+    font-size: 2.5rem;
+  }
+}
+
+/* ---------- About Section ---------- */
+.about {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 150px;
+}
+.abtcont {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+}
+.abt-data, .edu-cont {
+  flex: 1;
+  border: 2px solid white;
+  border-radius: 8px;
+  padding: 20px;
+  background: #282828;
+}
+.abt-data h3, .edu-cont h2 {
+  color: #fed700;
+}
+.abt-data li {
+  margin-bottom: 12px;
+  font-size: 15px;
+  color: #ddd;
+}
+.edu-cont div {
+  margin-bottom: 25px;
+}
+.edu-cont h3 {
+  margin-bottom: 6px;
+  color: #ccc;
+}
+
+/* Responsive About */
+@media all and (max-width: 900px) {
+  .abtcont {
+    flex-direction: column;
+  }
+}
+
+/* ---------- Skills Section ---------- */
+.skills {
+  padding: 4rem 0;
+  text-align: center;
+}
+.skills h1 {
+  color: #fed700;
+  font-size: 35px;
+  margin-bottom: 30px;
+}
+.skls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.box {
+  flex: 1 1 120px;
+  margin: 15px;
+  padding: 1.5rem;
+  border: 1px solid #fed700;
+  border-radius: 10px;
+  background: #282828;
+  color: #fed700;
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.3s ease;
 }
 .box i {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 22px;
-    color: #fed700;
+  display: block;
+  margin-bottom: 8px;
+  font-size: 22px;
+  color: #fed700;
 }
 .box:hover {
-    background-color: #fed700;
-    color: #202020;
-    transform: translateY(-5px);
+  background-color: #fed700;
+  color: #202020;
+  transform: translateY(-6px);
 }
 .box:hover i {
-    color: #202020;
+  color: #202020;
 }
 
-/* --- Projects Section Update --- */
+/* ---------- Projects Section ---------- */
+.projects {
+  padding: 4rem 0;
+  text-align: center;
+}
+.projects h1 {
+  color: #fed700;
+  font-size: 35px;
+  margin-bottom: 30px;
+}
+.procont {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
 .probox {
-    width: 300px;
-    background: #1a1a1a;
-    color: white;
-    border-radius: 15px;
-    padding: 25px;
-    margin: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-.probox i {
-    width: 60px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #fed700;
-    border-radius: 50%;
-    color: #202020;
-    font-size: 24px;
-    margin-bottom: 15px;
-}
-.probox h3 {
-    font-size: 22px;
-    margin-bottom: 10px;
-    color: #fed700;
-}
-.probox div {
-    text-align: justify;
-    width: 100%;
-    line-height: 22px;
+  flex: 1 1 280px;
+  max-width: 320px;
+  background: #282828;
+  border-radius: 12px;
+  padding: 25px;
+  color: #ddd;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .probox:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.4);
 }
-
-/* --- Project Links --- */
+.probox i {
+  margin: 10px auto;
+  width: 60px;
+  height: 60px;
+  font-size: 1.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fed700;
+  border-radius: 50%;
+  color: #202020;
+}
+.probox h3 {
+  color: #fed700;
+  margin: 15px 0;
+}
+.probox div {
+  font-size: 0.95rem;
+  text-align: justify;
+}
 .link {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-    width: 100%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
 }
 .link button {
-    padding: 8px 18px;
-    background-color: #fed700;
-    border: none;
-    border-radius: 20px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+  padding: 8px 18px;
+  background-color: #fed700;
+  border: none;
+  border-radius: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .link button:hover {
-    background-color: aqua;
-    transform: scale(1.05);
+  background-color: aqua;
+  transform: scale(1.05);
 }
 .link a {
-    text-decoration: none;
-    color: #202020;
+  text-decoration: none;
+  color: #202020;
 }
 
-/* --- Section Headings (for consistency) --- */
-.skills h1, 
-.projects h1,
-.edu-cont h2,
-.abt-data h2 {
-    color: #fed700;
+/* ---------- Contact Section ---------- */
+.contform {
+  padding: 3rem 0;
+  display: flex;
+  justify-content: center;
+}
+.fm {
+  background: #282828;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+}
+.fm h1 {
+  color: #fed700;
+  margin-bottom: 10px;
+}
+.fm input, .fm textarea {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  border-radius: 6px;
+  background: #202020;
+  border: 1px solid #555;
+  color: #eee;
+}
+.fm input:focus, .fm textarea:focus {
+  border-color: #fed700;
+  outline: none;
+}
+.msg {
+  margin-top: 10px;
+  background-color: #fed700;
+  color: #202020;
+  padding: 12px 25px;
+  border-radius: 20px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.msg:hover {
+  background: #202020;
+  color: #fed700;
+  border: 1px solid #fed700;
+}
+
+/* ---------- Footer ---------- */
+.foot {
+  background: #202020;
+  padding: 2rem 0;
+  text-align: center;
+}
+.ftcont {
+  color: #aaa;
+}
+.ftcont p {
+  font-size: 14px;
+}
+.linksft a {
+  margin: 0 10px;
+  color: #666;
+  transition: color 0.3s ease;
+}
+.linksft a:hover {
+  color: #fed700;
+}
+/* ---------- Mobile Responsive Tweaks ---------- */
+@media screen and (max-width: 480px) {
+  /* Navbar */
+  .nav {
+    flex-direction: column;
+    height: auto;
+    padding: 0.8rem 1rem;
+  }
+  .name {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+  .info {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+  .info div a {
+    font-size: 15px;
+  }
+
+  /* Home Section */
+  .home {
+    padding-top: 90px;
+    padding-bottom: 60px;
+  }
+  .hmcont {
+    flex-direction: column-reverse;
     text-align: center;
-    margin-bottom: 20px;
-    font-size: 30px;
-    letter-spacing: 1px;
+    gap: 1.5rem;
+  }
+  .data h1 {
+    font-size: 2rem;
+  }
+  .data p {
+    font-size: 0.9rem;
+  }
+  .resumebtn button {
+    font-size: 0.85rem;
+    padding: 10px 18px;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  .pic {
+    width: 200px;
+    height: 250px;
+  }
+
+  /* About Section */
+  .abtcont {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .abt-data, .edu-cont {
+    width: 100%;
+    font-size: 14px;
+    padding: 15px;
+  }
+  .abt-data h3, .edu-cont h2 {
+    font-size: 18px;
+  }
+
+  /* Skills */
+  .skills h1 {
+    font-size: 24px;
+  }
+  .box {
+    flex: 1 1 100px;
+    padding: 1rem;
+    font-size: 0.9rem;
+    margin: 8px;
+  }
+
+  /* Projects */
+  .probox {
+    max-width: 100%;
+    width: 90%;
+    padding: 20px;
+  }
+  .probox h3 {
+    font-size: 18px;
+  }
+  .probox div {
+    font-size: 0.85rem;
+  }
+
+  /* Contact */
+  .fm {
+    width: 90%;
+    padding: 1.5rem;
+  }
+  .fm h1 {
+    font-size: 24px;
+  }
+  .fm input, .fm textarea {
+    font-size: 0.9rem;
+  }
+  .msg {
+    width: 120px;
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  /* Footer */
+  .ftcont p {
+    font-size: 12px;
+  }
 }
-
-
