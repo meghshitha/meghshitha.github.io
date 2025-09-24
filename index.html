@@ -1,227 +1,505 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEGHA </title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
- 
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Protest+Revolution&display=swap" rel="stylesheet">
-<link
-      rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Megha K | Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <!-- Embedded CSS -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #fdfdfd;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 8%;
+      background: #111;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav .name a {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-decoration: none;
+      color: #fed700;
+    }
+
+    .nav .name span {
+      color: #fff;
+    }
+
+    .nav .info {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav .info a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav .info a:hover {
+      color: #fed700;
+    }
+
+    /* Home */
+    .home {
+      padding: 70px 8%;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .data-cont {
+      flex: 1 1 400px;
+      padding-right: 30px;
+    }
+
+    .data h4 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    .data h1 {
+      font-size: 50px;
+      color: #111;
+      margin-bottom: 20px;
+    }
+
+    .data p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .btn-group {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .btn-group i {
+      font-size: 35px;
+      transition: 0.3s;
+    }
+
+    .btn-group i:hover {
+      color: #111;
+    }
+
+    .btn-group button {
+      padding: 10px 20px;
+      border: none;
+      background: #fed700;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-group button:hover {
+      background: #111;
+      color: #fff;
+    }
+
+    .pic-cont {
+      flex: 1 1 300px;
+      text-align: center;
+    }
+
+    .pic-cont img {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #fed700;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+    }
+
+    /* About */
+    .about {
+      padding: 70px 8%;
+      background: #f8f8f8;
+    }
+
+    .abtcont {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 50px;
+    }
+
+    .abt-data {
+      flex: 1 1 400px;
+    }
+
+    .abt-data h3 {
+      margin-bottom: 10px;
+    }
+
+    .abt-data ul {
+      margin-bottom: 20px;
+      padding-left: 20px;
+    }
+
+    .edu-cont {
+      flex: 1 1 400px;
+    }
+
+    .edu-cont h2 {
+      margin-bottom: 20px;
+      color: #fed700;
+    }
+
+    .edu-cont div {
+      margin-bottom: 20px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    }
+
+    /* Skills */
+    .skills {
+      padding: 70px 8%;
+      text-align: center;
+    }
+
+    .skills h1 {
+      margin-bottom: 30px;
+      color: #fed700;
+    }
+
+    .skls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .box {
+      padding: 20px;
+      border: 2px solid #fed700;
+      border-radius: 8px;
+      font-weight: bold;
+      min-width: 120px;
+      text-align: center;
+      transition: 0.3s;
+      background: #fff;
+    }
+
+    .box:hover {
+      background: #fed700;
+      color: #111;
+      transform: scale(1.05);
+    }
+
+    /* Projects */
+    .projects {
+      padding: 70px 8%;
+      background: #f8f8f8;
+    }
+
+    .projects h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #111;
+    }
+
+    .procont {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .probox {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .probox:hover {
+      transform: translateY(-8px);
+    }
+
+    .probox h3 {
+      margin: 15px 0;
+      color: #fed700;
+    }
+
+    .link button {
+      margin-top: 10px;
+      padding: 8px 16px;
+      border: none;
+      background: #fed700;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .link button:hover {
+      background: #111;
+      color: #fff;
+    }
+
+    /* Contact */
+    .contform {
+      padding: 70px 8%;
+      text-align: center;
+    }
+
+    .fm {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .fm input, .fm textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      width: 100%;
+    }
+
+    .fm button {
+      background: #fed700;
+      border: none;
+      padding: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+    .fm button:hover {
+      background: #111;
+      color: #fff;
+    }
+
+    /* Footer */
+    .foot {
+      background: #111;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .foot p {
+      margin: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav .info {
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .data h1 {
+        font-size: 35px;
+      }
+
+      .pic-cont img {
+        width: 220px;
+        height: 220px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="nav">
-        <span class="name"><a href="#" target="_blank">Megha <span>K</span></a></span>
-        <div class="info">
-            <div><a href="#home">Home</a></div>
-            <div><a href="#about">About</a></div>
-            <div><a href="#skills">Skills</a></div>
-            <div><a href="#projects">Project</a></div>
-            <div><a href="#contact">Contact</a></div>
+
+  <!-- Navbar -->
+  <div class="nav">
+    <span class="name"><a href="#">Megha <span>K</span></a></span>
+    <div class="info">
+      <div><a href="#home">Home</a></div>
+      <div><a href="#about">About</a></div>
+      <div><a href="#skills">Skills</a></div>
+      <div><a href="#projects">Projects</a></div>
+      <div><a href="#contact">Contact</a></div>
+    </div>
+  </div>
+
+  <!-- Home -->
+  <div class="home" id="home">
+    <div class="data-cont">
+      <div class="data">
+        <h4>Hi, I'm</h4>
+        <h1>Megha K</h1>
+        <p>
+          Welcome to my portfolio website! I'm a passionate student currently pursuing my Master's in Computer Applications (MCA). With a strong foundation in computer science, I am dedicated to continuously learning and growing in this ever-evolving field.<br><br>
+          I have honed my skills in programming (C++, Java, Python) and am proficient in web technologies like HTML, CSS, and MySQL. My toolkit also includes modern platforms like VS Code and GitHub.
+        </p>
+        <div class="btn-group">
+          <a href="https://www.linkedin.com/in/megha-k27/" target="_blank"><i class="fa-brands fa-linkedin" style="color:#fed700;"></i></a>
+          <a href="https://github.com/meghshitha/" target="_blank"><i class="fa-brands fa-github" style="color:#fed700;"></i></a>
+          <a href="resume.html" target="_blank"><button>Resume</button></a>
         </div>
-
+      </div>
     </div>
-    
+    <div class="pic-cont">
+      <div class="pic">
+        <img src="assets/mee.jpg" alt="Megha K">
+      </div>
+    </div>
+  </div>
 
-    <!-- Home -->
-    <div class="home" id="home">
-        <div class="hmcont">
-            <div class="data-cont">
-                <div class="data">
-                    <h4>Hi, I'm</h4>
-                    <h1>Megha K</h1>
-                    <p>
-                        Welcome to my portfolio website! I'm a a passionate student currently pursuing my Master's in Computer Applications (MCA). With a strong foundation in computer science, I am dedicated to continuously learning and growing in this ever-evolving field.
-                        <br><br>
+  <!-- About -->
+  <div class="about" id="about">
+    <div class="abtcont">
+      <div class="abt-data">
+        <h3 style="color:#fed700;">CERTIFICATIONS</h3>
+        <ul>
+          <li>Programming in Java – NPTEL</li>
+          <li>HTML & CSS Complete Course – Udemy</li>
+          <li>Python for Data Analysis – Udemy</li>
+          <li>PHP with MySQL – Udemy</li>
+        </ul>
 
-                        I have honed my skills in various programming languages, including C++, Java, and Python, and am proficient in web technologies like HTML, CSS, and MySQL. My toolkit also includes modern development environments and platforms such as VS Code and GitHub                    <div class="btn-group">
-                        <a href="https://www.linkedin.com/in/megha-k27/" class="linkedinlogo" target="_blank"><i class="fa-brands fa-linkedin fa-2xl" style="color:#fed700; font-size: 40px;"></i></a>
-                        <a href="https://github.com/meghshitha/" class="linkedinlogo" target="_blank"><i class="fa-brands fa-github fa-2xl" style="color:#fed700; font-size: 40px; padding-left: 20px;"></i></a>
-                        <a href="resume.html" class="resumebtn" target="_blank"><button>Resume</button></a>
-                    </div>  
-                </div>
-            </div>
-            <div class="pic-cont">
-                <div class="pic">
-                    <img src="assests/mee.jpg" alt="Me">
-                </div>
-            </div>
+        <h3 style="color:#fed700;">ACCOMPLISHMENTS</h3>
+        <ul>
+          <li>Initiated and led technical team “Samsthita” at Seshadripuram College.</li>
+          <li>2nd Place in Idea Presentation at SBC, Bangalore.</li>
+          <li>Volunteer at “Aroha” International Youth Conference 2022.</li>
+        </ul>
+
+        <h3 style="color:#fed700;">RESEARCH PUBLICATIONS</h3>
+        <ul>
+          <li>“Optimized Deep CNN for Detection and Classification of Glaucoma in Retinal Images” – Presented at ICERECT 2025 (IEEE Bangalore Section).</li>
+        </ul>
+      </div>
+
+      <div class="edu-cont">
+        <h2>Education</h2>
+        <div>
+          <h3>Master in Computer Applications</h3>
+          <p>Siddaganga Institute of Technology, Tumkur (2024–2025)</p>
         </div>
-    </div>
-    <!-- About  -->
-    <div class="about" id="about">
-        <div class="abtcont">
-            <div class="abt-data">
-                <!-- <h2>About Me</h2> -->
-                <ul><h3 style="color:#fed700;font-size: 22px;">CERTIFICATIONS</h3>
-                    <ul>
-                    <li>Programming in Java – NPTEL</li>
-                    <li>HTML & CSS COMPLETE COURSE  -Udemy   </li>
-                    <li>PYTHON FOR DATA ANALYSIS    -Udemy</li>
-                    <li>PHP WITH MYSQL  -Udemy </li>
-                    </ul>
-                </ul>
-                <ul><h3 style="color:#fed700;font-size: 22px;">ACCOMPLISHMENT</h3>
-                    <ul>
-                    <li>Initiated and led the technical team “Samsthita” at Seshadripuram College.</li>
-                    <li>Stood 2nd place idea Presentation at Seshadripuram Business college Bangalore</li>
-                    <li>Been a volunteer of “Aroha” International Youth Conference 2022 at Seshadripuram Institution </li>
-                    </ul>
-                </ul>
-                <ul>
-    <h3 style="color:#fed700;font-size:22px;">RESEARCH PUBLICATIONS</h3>
-    <ul>
-        <li>
-            “Optimized Deep CNN for Detection and Classification of Glaucoma in Retinal Images”  
-            – Presented at ICERECT 2025, P.E.S. College of Engineering, Mandya, IEEE Bangalore Section.
-        </li>
-    </ul>
-</ul>
-
-            </div>
-            <div class="edu-cont">
-                <h2>Education</h2>
-                <div class="btech">
-                    <h3>MASTER IN COMPUTER APPLICATIONS</h3>
-                    <h3>Siddaganga Institute of Technology, Tumkur</h3>
-                    <h3><i class="fa-solid fa-calendar"></i> 2024 - 2025</h3>
-                </div>
-                <div class="clg">
-                    <h3>BACHELOR COMPUTER APPLICATIONS</h3>
-                    <h3>Seshadripuram College,Tumkur</h3>
-                    <h3><i class="fa-solid fa-calendar"></i> 2020 - 2023 
-                    </h3>
-                </div>
-                <div class="scl">
-                    <h3>PUC (PCMC)</h3>
-                    <h3>Seshadripuram PU College, Tumkur</h4>
-                    <h3><i class="fa-solid fa-calendar"> </i> 2018 - 2020</h3>
-                </div>
-            </div>
+        <div>
+          <h3>Bachelor in Computer Applications</h3>
+          <p>Seshadripuram College, Tumkur (2020–2023)</p>
         </div>
-    </div>
-
-    <!-- Skills  -->
-    <div class="skills" id="skills">
-        <div class="sklcont">
-            <h1 style="color: #fed700; font-size: 35px; margin-bottom: 30px;">Skills</h1>
-            <div class="skls">
-                <div class="java box"><i class="fa-brands fa-java fa-xl"></i>JAVA</div>
-                <div class="algo box">Pyhton</div>
-                <div class="html box"><i class="fa-brands fa-html5 fa-xl"></i>HTML</div>
-                <div class="css box"><i class="fa-brands fa-css3-alt fa-xl"></i>CSS</div>
-                <div class="bs box">C / C++</div>
-                <div class="js box"><i class="fa-brands fa-js fa-xl"></i>PHP</div>
-                <div class="react box"><i class="fa-brands fa-react"></i>SQL</div>
-                <div class="react box"><i class="fa-brands fa-github"></i>GitHub</div>
-            </div>
+        <div>
+          <h3>PUC (PCMC)</h3>
+          <p>Seshadripuram PU College, Tumkur (2018–2020)</p>
         </div>
+      </div>
     </div>
-    <!-- Projects -->
-    <div class="projects" id="projects">
-        <h1>My Projects</h1>
-        <div class="procont">
-            <div class="clone probox">
-                <i class="fa-brands fa-amazon fa-xl"></i>
-                <h3>VIRTUAL ASSISTANT</h3>
-                <div class="clninfo">
-                    A Python-based Virtual Assistant project with NLP, an
-                    intuitive user interface, and voice command capabilities,
-                    enhancing user interaction and task automations  </div>
-                <div class="link">
-                    <!-- <a href="https://vishnuvardhanu.github.io/amazon_clone/" target="_blank"><button>Live</button></a> -->
-                    <a href="https://github.com/meghshitha/virtual_assistance" target="_blank"><button>Code</button></a>
-                </div>
-            </div>
-            <div class="genquery probox">
-    <i class="fa-solid fa-database fa-xl"></i>
-    <h3>GENQUERY</h3>
-    <div class="gqinfo">
-        Developed an NLP-driven database interaction tool using Gemini LLM, Streamlit, 
-        and MySQL. Enabled non-IT users to query databases in natural language, 
-        improving accessibility and retrieval speed by 40%.
-    </div>
-    <div class="link">
-        <a href="https://github.com/meghshitha/genquery" target="_blank"><button>Code</button></a>
-    </div>
-</div>
+  </div>
 
-<div class="glaucoma probox">
-    <i class="fa-solid fa-eye fa-xl"></i>
-    <h3>AI-POWERED RETINAL IMAGE ANALYSIS</h3>
-    <div class="glinfo">
-        Built a deep learning pipeline integrating CNN classification, U-Net segmentation, 
-        and CDR-based severity grading for glaucoma detection. Achieved 93% accuracy and 
-        deployed with Streamlit for real-time screening.
+  <!-- Skills -->
+  <div class="skills" id="skills">
+    <h1>Skills</h1>
+    <div class="skls">
+      <div class="box"><i class="fa-brands fa-java"></i> Java</div>
+      <div class="box">Python</div>
+      <div class="box"><i class="fa-brands fa-html5"></i> HTML</div>
+      <div class="box"><i class="fa-brands fa-css3-alt"></i> CSS</div>
+      <div class="box">C / C++</div>
+      <div class="box"><i class="fa-brands fa-php"></i> PHP</div>
+      <div class="box"><i class="fa-solid fa-database"></i> SQL</div>
+      <div class="box"><i class="fa-brands fa-github"></i> GitHub</div>
     </div>
-    <div class="link">
-        <a href="https://github.com/meghshitha/glaucoma_pipeline" target="_blank"><button>Code</button></a>
-    </div>
-</div>
+  </div>
 
-            <div class="stopwatch probox">
-                <i class="fa-solid fa-stopwatch fa-xl"></i>
-                <h3>EDUCARE</h3>
-                <div class="swinfo">
-                    Developed a web-based College management system
-                    using HTML, CSS, PHP, JavaScript and XAMPP, aimed at
-                    optimizing College operations and overseeing some of the
-                    functions effectively                </div>
-                <div class="link">
-                    <a href="https://5theducare.000webhostapp.com/" target="_blank"><button>Live</button></a>
-
-                    <a href="https://github.com/meghshitha/EDUCARE" target="_blank"><button>Code</button></a>
-
-                </div>
-            </div>
-            <div class="memorygame probox">
-                <i class="fa-solid fa-brain fa-xl"></i>
-                <h3>AGROTECH</h3>
-                <div class="mginfo">
-                    Created a static user-friendly demo platform for both rental
-                    housing options and skilled daily workers, offering convenient
-                    solutions for housing and various tasks.(HTML,CSS)
-                                    </div>
-                <div class="link">
-                    <a href="https://agrotech4th.web.app/" target="_blank"><button>Live</button></a>
-                    <a href="https://github.com/meghshitha/agrotech" target="_blank"><button>Code</button></a>
-                </div>
-            </div>
+  <!-- Projects -->
+  <div class="projects" id="projects">
+    <h1>My Projects</h1>
+    <div class="procont">
+      <div class="probox">
+        <i class="fa-brands fa-amazon"></i>
+        <h3>Virtual Assistant</h3>
+        <p>A Python-based Virtual Assistant with NLP, UI, and voice commands for enhanced task automation.</p>
+        <div class="link">
+          <a href="https://github.com/meghshitha/virtual_assistance" target="_blank"><button>Code</button></a>
         </div>
-    </div>
-    <!-- Contact Form -->
-    <div class="contform" id="contact">
-        <div class="contfm">
-            <form action="https://api.web3forms.com/submit" method="POST" class="fm">
+      </div>
 
-                <input type="hidden" name="access_key" value="8be4e151-6570-4b41-ba5e-b054012ee70b">                <h1>Contact Me</h1>
-                <p>Get In Touch</p>
-                <input type="text" name="name" placeholder="Name" class="namefm" required>
-                <input type="email" name="email" placeholder="Email" class="mailfm" required>
-                <!-- <input type="text" placeholder="Subject" class="subfm" required> -->
-                <textarea name="message" placeholder="Message"  cols="30" rows="10" class="msgfm"></textarea>
-                <br><button class="msg">Send Message</button>
-            </form>
+      <div class="probox">
+        <i class="fa-solid fa-database"></i>
+        <h3>GenQuery</h3>
+        <p>NLP-driven database interaction using Gemini LLM, Streamlit, and MySQL. Simplifies querying for non-IT users.</p>
+        <div class="link">
+          <a href="https://github.com/meghshitha/genquery" target="_blank"><button>Code</button></a>
         </div>
-    </div>
+      </div>
 
-     <!-- Footer -->
-     <div class="foot">
-        <div class="ftcont">
-            <p>Thanks for visiting  </p>
-            <!-- <div class="linksft">
-                <a href="https://www.instagram.com/vishnu_vardhan_u/" target="_blank"><i class="fa-brands fa-instagram fa-xl"></i></a>
-                <a href="https://www.linkedin.com/in/vishnu-vardhan-725720234/" target="_blank"><i class="fa-brands fa-linkedin fa-xl"></i></a>
-                <a href="https://api.whatsapp.com/send?phone=916304794408" target="_blank"><i class="fa-brands fa-whatsapp fa-xl"></i></a>
-            </div> -->
+      <div class="probox">
+        <i class="fa-solid fa-eye"></i>
+        <h3>AI Retinal Analysis</h3>
+        <p>Deep learning pipeline with CNN + U-Net for glaucoma detection. Achieved 93% accuracy, deployed via Streamlit.</p>
+        <div class="link">
+          <a href="https://github.com/meghshitha/glaucoma_pipeline" target="_blank"><button>Code</button></a>
         </div>
-     </div>
+      </div>
+
+      <div class="probox">
+        <i class="fa-solid fa-stopwatch"></i>
+        <h3>EduCare</h3>
+        <p>Web-based college management system (HTML, CSS, PHP, JS, XAMPP) for optimized academic operations.</p>
+        <div class="link">
+          <a href="https://5theducare.000webhostapp.com/" target="_blank"><button>Live</button></a>
+          <a href="https://github.com/meghshitha/EDUCARE" target="_blank"><button>Code</button></a>
+        </div>
+      </div>
+
+      <div class="probox">
+        <i class="fa-solid fa-brain"></i>
+        <h3>AgroTech</h3>
+        <p>Static demo platform for rental housing & skilled workers. User-friendly interface for daily needs.</p>
+        <div class="link">
+          <a href="https://agrotech4th.web.app/" target="_blank"><button>Live</button></a>
+          <a href="https://github.com/meghshitha/agrotech" target="_blank"><button>Code</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="contform" id="contact">
+    <form action="https://api.web3forms.com/submit" method="POST" class="fm">
+      <input type="hidden" name="access_key" value="8be4e151-6570-4b41-ba5e-b054012ee70b">
+      <h1>Contact Me</h1>
+      <p>Get in Touch</p>
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" placeholder="Message" rows="6"></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <div class="foot">
+    <p>Thanks for visiting!</p>
+  </div>
+
 </body>
 </html>
-
-
